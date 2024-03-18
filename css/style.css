@@ -1,3 +1,28 @@
+/*------------
+RESET
+-------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: "Montserrat", sans-serif;
+}
+
+.grid{
+    margin: auto;
+    display: flex;
+    max-width: 1000px;
+    flex-wrap: wrap;
+
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    flex-shrink: 0;
 }
