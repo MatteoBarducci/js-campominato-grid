@@ -5,16 +5,31 @@
 
 const grid = document.querySelector('.grid')
 const btn = document.querySelector('#btn');
+let difficulty = document.querySelector('#difficulty');
+let numberPerRow
+
 btn.addEventListener('click', function(){
-    for(let i = 1; i <= 100; i++){
+    grid.innerHTML = ''
+    let value = difficulty.value;
+
+    let numberPerRow = Math. sqrt(value)
+    console.log(numberPerRow)
+    
+    for(let i = 1; i <= value; i++){
         const newSquare = generateSquare(i);
         grid.append(newSquare);
+        newSquare.style.width = `calc(100% / ${numberPerRow})`
+        newSquare.style.height = `calc(100% / ${numberPerRow})`
+        newSquare.addEventListener ('click', function(){
+            this.classList.add('blue')
+        })
     }
+
 })
 
-function generateSquare(number){
+function generateSquare(number, value){
     const newSquare = document.createElement('div');
     newSquare.classList.add('square');
     newSquare.innerHTML = '<span>' + number + '</span>';
-    return newSquare
+    return newSquare;
 }
